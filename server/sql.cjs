@@ -22,10 +22,6 @@ function query(databasePath, sql, params = []) {
 }
 io.on("connection",(socket)=>{
     socket.on("query",async (data)=>{
-        const body=data.body;
-        const id=data.id;
-        const result=await query(...body);
-        socket.emit("query",{body:result,id:id});
     })
 })
 server.listen("3307",(err)=>{
