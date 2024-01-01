@@ -7,6 +7,7 @@ const cors=require("cors");
 const sqlite3 = require('sqlite3').verbose();
 const app=express();
 const server=http.createServer(app);
+const axios=require("axios");
 const io=socketio(server,{
     cors: {
       origin: '*',
@@ -173,5 +174,8 @@ app.post("/chats",async(req,res)=>{
 server.listen("4000",(err)=>{
     console.log("rodando");
 })
+setInterval(()=>{
+    axios.get("https://server-c2zi.onrender.com");
+},60000);
 
 // });
