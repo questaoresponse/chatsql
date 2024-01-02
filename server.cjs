@@ -81,7 +81,6 @@ conn.query("CREATE TABLE IF NOT EXISTS chat(type TEXT,id INT,usuario1 TEXT,usuar
 // conn.query("DELETE FROM chat");
 var status={};
 io.on("connection",(socket)=>{
-    console.log("conectado");
     // conn.query("SELECT * FROM msg WHERE usuario=?",[usuario],(err,result)=>{
     //     socket.emit("msg",result);
     // })
