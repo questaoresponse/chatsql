@@ -13,6 +13,7 @@ const io=socketio(server,{
       origin: '*',
     },
 });
+const isProduction=process.env.NODE_ENV === 'production';
 // const socketClient=socketioClient("http://192.168.3.36:3307");
 app.use(express.json());       // Para analisar dados no formato JSON
 app.use(express.urlencoded({ extended: true })); // Para analisar dados de formulário HTML
@@ -174,8 +175,11 @@ app.post("/chats",async(req,res)=>{
 server.listen("4000",(err)=>{
     console.log("rodando");
 })
-setInterval(()=>{
-    axios.get("https://server-c2zi.onrender.com");
-},60000);
-
+if (isProduction){
+    setInterval(()=>{
+        axios.get( "https://server-c2zi.onrender.com" )
+        .then()
+        .catch();
+    },60000);
+}
 // });
