@@ -29,7 +29,7 @@ app.use(cors());
 var resolves=[];
 async function querySql(databasePath, sql, params = []){
     return new Promise((resolve, reject) => {
-        const db = new sqlite3.Database(__dirname+"/../"+databasePath);
+        const db = new sqlite3.Database(__dirname+isProduction ? "/../" : ""+databasePath);
     
         db.all(sql, params, (err, rows) => {
         db.close();
