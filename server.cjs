@@ -264,6 +264,9 @@ app.post("/chats",async(req,res)=>{
     const {data:result,error}=await supabase.from("chat").select("*").or(`usuario1.eq.${usuario},usuario2.eq.${usuario}`);
     res.json({chats:result});
 })
+app.get("/",(req,res)=>{
+    res.send("oi");
+});
 // app.get("/a", async(req,res)=>{
 //     // const {data:result,error}=await supabase.from("msg").select("*");
 //     // for (var i=1;i<result.length+1;i++){
