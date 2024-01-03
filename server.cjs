@@ -289,10 +289,12 @@ server.listen("4000",(err)=>{
     console.log("rodando");
 })
 if (isProduction){
-    setInterval(()=>{
-        axios.get( "https://server-c2zi.onrender.com" )
-        .then()
-        .catch();
+    setInterval(async ()=>{
+        try{
+            await axios.get( "https://server-c2zi.onrender.com" )
+        } catch(error){
+
+        }
     },60000);
 }
 // });
